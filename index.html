@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Math Practice App</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Math Practice App</h1>
+      <div class="controls">
+        <label for="operation">Choose an operation:</label>
+        <select id="operation">
+          <option value="addition">Addition</option>
+          <option value="subtraction">Subtraction</option>
+          <option value="multiplication">Multiplication</option>
+          <option value="division">Division</option>
+        </select>
+
+        <h4 id="numOne">Range for first number</h4>
+        <input type="number" id="numOneStart" placeholder="1" /> to
+        <input type="number" id="numOneEnd" placeholder="9" />
+
+        <h4 id="numTwo">Range for second number</h4>
+        <input type="number" id="numTwoStart" placeholder="1" /> to
+        <input type="number" id="numTwoEnd" placeholder="9" />
+
+        <div>
+            <button onclick="startPractice()">Start Practice</button>
+            <label for="timer-checkbox">Enable Timer:</label>
+            <input type="checkbox" id="timer-checkbox">
+        </div>
+      </div>
+
+      <div class="question">
+        <span id="question-num"></span>
+        <span id="question-text"></span>
+      </div>
+
+      <div class="answer">
+        <input type="number" id="answer" placeholder="Your answer" />
+        <button onclick="checkAnswer()">Check Answer</button>
+      </div>
+
+      <div class="result" id="result"></div>
+
+      <div class="info">
+        <div id="score">Score: 0</div>
+        <div id="questionCount">Total Questions: 0</div>
+        <div id="timer">Time: 0s</div>
+      </div>
+
+      <div class="info">
+        <ul id="correctQuestions"></ul>
+        <ul id="wrongQuestions"></ul>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

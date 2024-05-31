@@ -1,0 +1,54 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: top;
+  /* height: 150vh; */
+  background-color: #f0f8ff;
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  color: #333;
+}
+
+.controls, .question, .answer {
+  margin: 20px 0;
+}
+
+.controls label {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.question {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+input, select, button {
+  padding: 10px;
+  font-size: 20px;
+  margin: 5px 0;
+}
+
+.result {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  font-size: 18px;
+}
