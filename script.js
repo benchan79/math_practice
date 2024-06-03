@@ -67,6 +67,18 @@ function generateUniqueQuestions(
     generatedQuestions.add(questionText);
   }
 
+  if (operation == "addition" || operation == "multiplication") {
+    let filteredQuestions = new Set();
+    for (const question of generatedQuestions) {
+      const [num1, operator, num2] = question.split(" ");
+      questionTuple = [num1, num2].sort();  // Sort to handle commutativity
+      questionText = `${questionTuple[0]} ${operator} ${questionTuple[1]}`;
+      filteredQuestions.add(questionText);
+    }
+
+    return Array.from(filteredQuestions);
+  }
+
   return Array.from(generatedQuestions);
 }
 
