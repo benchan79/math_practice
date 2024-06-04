@@ -71,7 +71,7 @@ function generateUniqueQuestions(
     let filteredQuestions = new Set();
     for (const question of generatedQuestions) {
       const [num1, operator, num2] = question.split(" ");
-      questionTuple = [num1, num2].sort();  // Sort to handle commutativity
+      questionTuple = [num1, num2].sort(); // Sort to handle commutativity
       questionText = `${questionTuple[0]} ${operator} ${questionTuple[1]}`;
       filteredQuestions.add(questionText);
     }
@@ -80,14 +80,31 @@ function generateUniqueQuestions(
 
   if (operation == "subtraction") {
     let filteredQuestions = new Set();
+    const reGroupEnabled = document.getElementById("re-group-checkbox").checked;
     for (const question of generatedQuestions) {
-      console.log(question)
       const [num1, operator, num2] = question.split(" ");
       if (Number(num1) >= Number(num2)) {
         questionText = `${num1} ${operator} ${num2}`;
         filteredQuestions.add(questionText);
       }
     }
+    // Include re-grouping type questions only
+    if (reGroupEnabled && numOneEnd > 10) {
+      let reGroupedQuestions = new Set();
+      for (const question of filteredQuestions) {
+        const [num1, operator, num2] = question.split(" ");
+        if (num1 > 10) {
+          num1OnePlaceValue = num1 % 10
+          num2OnePlaceValue = num2 % 10
+          if (num1OnePlaceValue < num2OnePlaceValue) {
+            questionText = `${num1} ${operator} ${num2}`;
+            reGroupedQuestions.add(questionText);
+          }
+        }
+      }
+      return Array.from(reGroupedQuestions);
+    }
+
     return Array.from(filteredQuestions);
   }
 
@@ -250,12 +267,19 @@ document.getElementById("answer").addEventListener("keydown", function (event) {
 // Add an event listener to the operation select to perform an action when changed
 document.getElementById("operation").addEventListener("change", function () {
   const selectedOperation = this.value;
+  const reGroupContainer = document.getElementById("re-group-container");
   if (selectedOperation === "division") {
-    document.getElementById("numOne").innerText =
-      "Range for quotient (Dividend will be calulated automatically)";
+    document.getElementById("numOne").innerText = "Range for quotient";
     document.getElementById("numTwo").innerText = "Range for divisor";
   } else {
     document.getElementById("numOne").innerText = "Range for first number";
     document.getElementById("numTwo").innerText = "Range for second number";
   }
+
+  if (selectedOperation === "subtraction") {
+    reGroupContainer.style.display = "block";
+  } else {
+    reGroupContainer.style.display = "none";
+  }
+
 });
