@@ -3,22 +3,22 @@ body {
   display: flex;
   justify-content: center;
   align-items: top;
-  /* height: 150vh; */
-  background-color: #f0f8ff;
-  margin: 0;
+  background-color: #121212;
+  color: #ddd;;
+  margin: 20px 0;
 }
 
 .container {
   text-align: center;
-  background: #ffffff;
+  background-color: #1e1e1e;
   border: 1px solid #ddd;
-  padding: 20px;
+  padding: 10px 20px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
-  color: #333;
+  color: #ddd;
 }
 
 .controls, .question, .answer {
@@ -35,10 +35,46 @@ h1 {
   font-weight: bold;
 }
 
-input, select, button {
+select {
+  background-color: #333;
+  color: #ddd;
+  border: 1px solid #555;
   padding: 10px;
+  border-radius: 5px;
   font-size: 20px;
-  margin: 5px 0;
+  margin: 10px 10px;
+}
+
+button {
+  background-color: #333;
+  color: #ddd;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 15px 10px;
+  font-size: 20px;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+input[type="number"] {
+  background-color: #333;
+  color: #ddd;
+  border: 1px solid #555;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 17px;
+  width: 120px;
+  margin: 0px 10px;
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin: 10px 0px;
 }
 
 .result {
