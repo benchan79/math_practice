@@ -75,7 +75,19 @@ function generateUniqueQuestions(
       questionText = `${questionTuple[0]} ${operator} ${questionTuple[1]}`;
       filteredQuestions.add(questionText);
     }
+    return Array.from(filteredQuestions);
+  }
 
+  if (operation == "subtraction") {
+    let filteredQuestions = new Set();
+    for (const question of generatedQuestions) {
+      console.log(question)
+      const [num1, operator, num2] = question.split(" ");
+      if (Number(num1) >= Number(num2)) {
+        questionText = `${num1} ${operator} ${num2}`;
+        filteredQuestions.add(questionText);
+      }
+    }
     return Array.from(filteredQuestions);
   }
 
